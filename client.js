@@ -43,5 +43,17 @@ server.post("/send-message", async (request, response) => {
 
 })
 
+
+server.get("/consume", (request, response) => {
+    
+    producer.consumeMessage();
+
+    response.send({
+        message: "Message consumed",
+        data: null
+    });
+
+})
+
 // server needs to be listening 
 server.listen("1234", () => console.log(`Server is listening on port 1234`));
